@@ -1,0 +1,20 @@
+def create_embedding_matrix(GloVe_dict, tokenizer, max_features):
+'''
+input: GloVe dictionaray, tokenizer from training and validation dataset, number of max features.
+output: Word embedding matrix.
+'''
+
+## TYPE YOUR CODE for task 6 here:
+all_glove = np.stack(GloVe_dict.values()) # tách vector ra thành các array
+glove_mean,glove_std = all_glove.mean(), all_glove.std()
+# glove_size = glove_embs.shape[1] # size của 1 vector, nay là array
+word_index = tokenizer.word_index
+no_words = min(max_features, len(word_index))
+embedding_matrix = np.random.normal(glove_mean, glove_std, (no_words, embed_size))# matrix chiều là (no_words, embed_size), với mean và std 
+for word, i in word_index.items():
+if i >= max_features: continue
+embedding_vector = GloVe_dict.get(word)
+if embedding_vector is not None: embedding_matrix[i] = embedding_vector
+return embedding_matrix
+
+embedding_matrix = create_embedding_matrix(GloVe_dict, tokenizer, max_features)
