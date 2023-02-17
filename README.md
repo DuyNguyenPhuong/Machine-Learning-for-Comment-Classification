@@ -1,4 +1,5 @@
-# Sentiment-classification-
-libraries : tensorflow,numpy
+# Machine Learning Project Sentiment-classification
 
-In this project, I will implement RNN model to classify toxic comments from users with tensorflow
+Hi everyone, in this project, I used Machine Learning to Classify Toxic Comments by implementing RNN model
+
+Some of the libraries I use are tensorflow and numpy
